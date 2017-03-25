@@ -349,10 +349,11 @@ void drawCDKScreen (CDKSCREEN *cdkscreen)
  */
 void refreshCDKWindow (WINDOW *win)
 {
-   touchwin (win);
+
+//   touchwin (win);
 //   wnoutrefresh (win);
-   wrefresh (win);
-  // doupdate();
+//   wrefresh (win);
+//   doupdate();
 }
 
 /*

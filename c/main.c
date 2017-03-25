@@ -1,4 +1,4 @@
-#include <cdk/cdk.h>
+#include <cdk.h>
 #include <ncurses.h>
 #include <string.h>
 #include <pthread.h>

@@ -3,6 +3,7 @@
 
 #include <panel.h>
 #include <sheet.h>
+#include <../cdk2/include/menu.h>
 
 extern Sheet*		Main_Sheet;		//global
 extern void 		Init_Menu 		(void);

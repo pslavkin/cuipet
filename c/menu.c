@@ -1,4 +1,5 @@
-#include <cdk/cdk.h>
+//#include <cdk/cdk.h>
+#include <cdk.h>
 #include <menu.h>
 #include <pthread.h>
 #include <panel.h>
@@ -17,7 +18,7 @@ void Init_Menu (void)
 	cbreak();
 	noecho();
 	keypad(stdscr, TRUE);
-	//initCDKColor ();
+	initCDKColor ();
 	start_color();
 	Init_Super_Colours(0,0,1,  0,192);
 	curs_set(0);
@@ -41,7 +42,7 @@ void Init_Super_Colours(unsigned char R,unsigned char G,unsigned char B,unsigned
 	}
 }
 //----------------------------------------------------------------------------------------------------
-void Set_Menu (PANEL* Panel,const char* Menu_List[][MAX_SUB_ITEMS],unsigned char Items,int* Submenu_Size,int *Menu_Loc)
+void Set_Menu (PANEL* Panel,const char *Menu_List[MAX_MENU_ITEMS][MAX_SUB_ITEMS],unsigned char Items,int* Submenu_Size,int *Menu_Loc)
 {
 	unsigned short int	Selection;
 	CDKSCREEN *Cdk		=initCDKScreen 		(panel_window(Panel));
@@ -173,7 +174,7 @@ void* Menu_Rti(void* Arg1)
 void Start_Menu_Menu 	(void)/*{{{*/
 {
 	int 			Submenu_Size[]={3,2,4},Menu_Loc[]={LEFT,LEFT,RIGHT};
-	const char 		*Menu_List[][MAX_SUB_ITEMS]= { 
+	const char 		*Menu_List[MAX_MENU_ITEMS][MAX_SUB_ITEMS]= { 
 					{
 						"</B>File<!B>",
 						"</B>Save<!B>",

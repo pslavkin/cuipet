@@ -1,5 +1,7 @@
 CC=g++
-LIBS= -lncurses -lpthread  -lpanel -lrt -L lib/ -lcdk_ps -lX11 -lGL -lGLU -lglut
+LIBS= -lncurses -lpthread  -lpanel -lrt -L lib/ -lcdk_ps_64 
+
+#-lX11 -lGL -lGLU -lglut
 
 SRC_DIR=./c
 EXE_DIR=./exe
@@ -13,14 +15,17 @@ _DEP = screen_update.h menu.h sheet.h analog_clk.h ball.h
 DEP_DIR=./h
 DEP = $(patsubst %,$(DEP_DIR)/%,$(_DEP))
 
+CDK_DEP_DIR=./cdk/include/
 
 sheet: ${OBJ}
 	${CC} -o ${EXE_DIR}/$@ $^ ${LIBS}
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c ${DEP}
-	${CC}  -g -c -o $@  $< -I${DEP_DIR} 
+	${CC}  -g -c -o $@  $< -I${DEP_DIR} -I${CDK_DEP_DIR} 
+ 
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp ${DEP}
-	${CC}  -g -c -o $@  $< -I${DEP_DIR} 
+	${CC}  -g -c -o $@  $< -I${DEP_DIR} -I${CDK_DEP_DIR} 
+
 clean:
 	@rm -f ${EXES} ${OBJ_DIR}/*
