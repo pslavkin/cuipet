@@ -4,19 +4,21 @@
 #include <pthread.h>
 
 #include "screen_update.h"
-#include "menu.h"
-#include "sheet.h"
+#include "menu.hpp"
+#include "sheet.hpp"
 #include "main.h"
 #include "ball.h"
 #include "analog_clk.h"
+#include "framework.hpp"
 
 int main(int argc, char **argv)
 {
-	Init_Menu();
+	Menu::Init_Menu();
 	Init_Screen_Update();
 	Init_Analog_Clk();
 	Params_Parser(argc,argv);
 	Ball::Init();	
+	Framework::Create_Framework();
 	for(;;)
 		;
 	return 0;

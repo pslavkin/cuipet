@@ -6,8 +6,8 @@
 #include <pthread.h>
 #include <string.h>
 #include "screen_update.h"
-#include "sheet.h"
-#include "menu.h"
+#include "sheet.hpp"
+#include "menu.hpp"
 #include "ball.h"
 #include "analog_clk.h"
 #include <pthread.h>

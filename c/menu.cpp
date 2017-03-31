@@ -1,18 +1,21 @@
-//#include <cdk/cdk.h>
 #include <cdk.h>
-#include <menu.h>
+#include <menu.hpp>
 #include <pthread.h>
 #include <panel.h>
 
-#include "sheet.h"
+#include "sheet.hpp"
 #include "screen_update.h"
 #include "analog_clk.h"
 
 //----------------------------------------------------------------------------------------------------
-pthread_t 		PT_Menu_Rti;
-Sheet *Main_Sheet;	//global porque lo usan el resto de las ventanitas para saber el maximo de tamanio y demas..
-//----------------------------------------------------------------------------------------------------
-void Init_Menu (void)
+Menu*	Menu::Menu_Inst;
+Sheet*	Menu::Main_Sheet;
+
+void	Menu::Init_Menu(void)
+{
+	Menu_Inst=new Menu();	
+}
+	Menu::Menu(void)
 {
 	Main_Sheet=new Sheet(initscr());	
 	cbreak();
@@ -20,16 +23,16 @@ void Init_Menu (void)
 	keypad(stdscr, TRUE);
 	initCDKColor ();
 	start_color();
-	Init_Super_Colours(0,0,1,  0,192);
+	Menu::Init_Super_Colours(0,0,1,  0,192);
 	curs_set(0);
-	pthread_create(&PT_Menu_Rti, NULL, Menu_Rti, NULL);
+	pthread_create(&PT_Menu_Rti, NULL,Menu_Rti,NULL);
 	Main_Sheet->Set_Panel_User_Pointer(Main_Sheet);
 	Main_Sheet->Set_Name((char*)"Main");
 	Main_Sheet->Full_Screen();
 	Main_Sheet->Redraw_Box();
 }
 //----------------------------------------------------------------------------------------------------
-void Init_Super_Colours(unsigned char R,unsigned char G,unsigned char B,unsigned char From, unsigned char Count)
+void Menu::Init_Super_Colours(unsigned char R,unsigned char G,unsigned char B,unsigned char From, unsigned char Count)
 {
 	unsigned short int i,Bg,Pair;
 	Pair=MIN_COLOUR_PAIR+From; 		//los primeros 64 se los regalo a CDK en su llamada a initCDKColor
@@ -42,7 +45,7 @@ void Init_Super_Colours(unsigned char R,unsigned char G,unsigned char B,unsigned
 	}
 }
 //----------------------------------------------------------------------------------------------------
-void Set_Menu (PANEL* Panel,const char *Menu_List[MAX_MENU_ITEMS][MAX_SUB_ITEMS],unsigned char Items,int* Submenu_Size,int *Menu_Loc)
+void Menu::Set_Menu (PANEL* Panel,const char *Menu_List[MAX_MENU_ITEMS][MAX_SUB_ITEMS],unsigned char Items,int* Submenu_Size,int *Menu_Loc)
 {
 	unsigned short int	Selection;
 	CDKSCREEN *Cdk		=initCDKScreen 		(panel_window(Panel));
@@ -55,7 +58,7 @@ void Set_Menu (PANEL* Panel,const char *Menu_List[MAX_MENU_ITEMS][MAX_SUB_ITEMS]
 	Main_Sheet->Redraw_Box();
 	Main_Sheet->Touch_Win();
 }
-char* Set_File_Select (PANEL* Panel)
+char* Menu::Set_File_Select (PANEL* Panel)
 {
 	char 				*File_Name;
 	static char 			New_File_Name[1000];
@@ -71,7 +74,7 @@ char* Set_File_Select (PANEL* Panel)
 	return New_File_Name;
 }
 
-unsigned char Set_Entry (PANEL* Panel,const char* Title,const char* Actual_Data,char* Data,unsigned short int Length)
+unsigned char Menu::Set_Entry (PANEL* Panel,const char* Title,const char* Actual_Data,char* Data,unsigned short int Length)
 {
 	char 	*Info,Ans=1;
 	CDKSCREEN 	*Cdk 	=initCDKScreen 		(panel_window(Panel));
@@ -87,16 +90,16 @@ unsigned char Set_Entry (PANEL* Panel,const char* Title,const char* Actual_Data,
 }
 
 //-------------------------------------------------------------------
-Sheet* Sheet4Top_Panel(void)
+Sheet* Menu::Sheet4Top_Panel(void)
 {
 	return Sheet4Panel(panel_below(0));	
 }
-Sheet* Sheet4Panel(PANEL* Panel)
+Sheet* Menu::Sheet4Panel(PANEL* Panel)
 {
 	return (Sheet*)(panel_userptr(Panel));
 }
 //-------------------------------------------------------------------
-void* Menu_Rti(void* Arg1)
+void* Menu::Menu_Rti(void* Arg1)
 {
 	struct timespec req={0,1000000};
 	int Selection,Key;
@@ -132,9 +135,9 @@ void* Menu_Rti(void* Arg1)
 				Sheet4Top_Panel()->Hide();
 				break;
 			case KEY_F10:
+				Sheet4Top_Panel()->Full_Screen();
 				break;
 			case KEY_F11:
-				Sheet4Top_Panel()->Full_Screen();
 				break;
 			case KEY_UP:
 				Sheet4Top_Panel()->To_Up();
@@ -171,7 +174,7 @@ void* Menu_Rti(void* Arg1)
 	}
 }
 //----------------------------------------------------------------------------------------------------
-void Start_Menu_Menu 	(void)/*{{{*/
+void Menu::Start_Menu_Menu 	(void)/*{{{*/
 {
 	int 			Submenu_Size[]={3,2,4},Menu_Loc[]={LEFT,LEFT,RIGHT};
 	const char 		*Menu_List[MAX_MENU_ITEMS][MAX_SUB_ITEMS]= { 
@@ -193,7 +196,7 @@ void Start_Menu_Menu 	(void)/*{{{*/
 				};
 	Set_Menu (Main_Sheet->Panel,Menu_List,3,Submenu_Size,Menu_Loc);
 }
-void Parse_Menu_Menu 	(int Selection)
+void Menu::Parse_Menu_Menu 	(int Selection)
 {
 	switch(Selection) {	
 		case 000:

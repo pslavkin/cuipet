@@ -2,8 +2,8 @@
 #include <panel.h>
 #include <pthread.h>
 
-#include "sheet.h"
-#include "menu.h"
+#include "sheet.hpp"
+#include "menu.hpp"
 #include <time.h>
 #include <ball.h>
 
