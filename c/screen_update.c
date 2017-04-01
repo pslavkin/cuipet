@@ -5,7 +5,7 @@
 #include "screen_update.h"
 //----------------------------------------------------------------------------------------------------
 pthread_t 	PT_Screen_Update_Rti;
-static struct timespec 		Rti_Delay={0,10000000}; //100 milis
+static struct timespec 		Rti_Delay={0,100000000}; //100 milis
 //----------------------------------------------------------------------------------------------------
 void Init_Screen_Update(void)
 {

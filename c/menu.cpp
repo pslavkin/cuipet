@@ -25,7 +25,6 @@ void	Menu::Init_Menu(void)
 	start_color();
 	Menu::Init_Super_Colours(0,0,1,  0,192);
 	curs_set(0);
-	pthread_create(&PT_Menu_Rti, NULL,Menu_Rti,NULL);
 	Main_Sheet->Set_Panel_User_Pointer(Main_Sheet);
 	Main_Sheet->Set_Name((char*)"Main");
 	Main_Sheet->Full_Screen();
@@ -97,81 +96,6 @@ Sheet* Menu::Sheet4Top_Panel(void)
 Sheet* Menu::Sheet4Panel(PANEL* Panel)
 {
 	return (Sheet*)(panel_userptr(Panel));
-}
-//-------------------------------------------------------------------
-void* Menu::Menu_Rti(void* Arg1)
-{
-	struct timespec req={0,1000000};
-	int Selection,Key;
-	while(1) {
-	 	nanosleep(&req,&req);
-		Key=getch();
-		switch(Key) {	
-			case KEY_F1:
-			case ' ':
-				Start_Menu_Menu();
-				break;
-			case KEY_F2:
-				break;
-			case KEY_F3:
-//				Sheet4Top_Panel()->Deselect();
-//				Top_Analog_Clk();
-//				Sheet4Top_Panel()->Select();
-				break;
-			case KEY_F4:
-//				Sheet4Top_Panel()->Deselect();
-//				Top_Analog_Clk1();
-//				Sheet4Top_Panel()->Select();
-				break;
-			case KEY_F5:
-				break;
-			case KEY_F6:	
-				break;
-			case KEY_F7:
-				break;
-			case KEY_F8:
-				break;
-			case KEY_F9:
-				Sheet4Top_Panel()->Hide();
-				break;
-			case KEY_F10:
-				Sheet4Top_Panel()->Full_Screen();
-				break;
-			case KEY_F11:
-				break;
-			case KEY_UP:
-				Sheet4Top_Panel()->To_Up();
-				break;
-			case KEY_DOWN:
-				Sheet4Top_Panel()->To_Down();
-				break;
-			case KEY_RIGHT:
-				Sheet4Top_Panel()->To_Right();
-				break;
-			case KEY_LEFT:
-				Sheet4Top_Panel()->To_Left();
-				break;
-			case 'l':
-				Sheet4Top_Panel()->Inc_Width();
-				break;
-			case 'h':
-				Sheet4Top_Panel()->Dec_Width();
-				break;
-			case 'j':
-				Sheet4Top_Panel()->Inc_Height();
-				break;
-			case 'k':
-				Sheet4Top_Panel()->Dec_Height();
-				break;
-			case KEY_BACKSPACE:
-				break;
-			case KEY_HOME:
-				break;
-			case KEY_ESC:
-				exit(0);
-				break;
-		}
-	}
 }
 //----------------------------------------------------------------------------------------------------
 void Menu::Start_Menu_Menu 	(void)/*{{{*/

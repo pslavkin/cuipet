@@ -575,6 +575,7 @@ CURDEF_H	cdk/include/curdefs.h	3;"	d
 CURDEF_H	include/curdefs.h	3;"	d
 CharOf	cdk/include/cdk_int.h	60;"	d
 CharOf	include/cdk_int.h	60;"	d
+Create_Framework	c/framework.cpp	/^	void 	Framework::Create_Framework(void)$/;"	f	class:Framework
 Create_New_Sheet_Inst	c/sheet.cpp	/^	unsigned short int Sheet::Create_New_Sheet_Inst(WINDOW* Win,const char* Name)$/;"	f	class:Sheet
 CurMatrixCell	cdk/matrix.c	27;"	d	file:
 CurMatrixInfo	cdk/matrix.c	30;"	d	file:
@@ -701,10 +702,12 @@ FPUsage	cdk/cli/cdkslider.c	/^static const char *FPUsage = "-f Field Width -l Lo
 FPUsage	cdk/cli/cdktemplate.c	/^static const char *FPUsage = "-p Plate [-o Overlay] [-P Mix Plate] [-d Default Answer] [-m Minimum Length] [-T Title] [-L Label] [-B Buttons] [-O Output file] [-X X Position] [-Y Y Position] [-N] [-S]";$/;"	v	file:
 FPUsage	cdk/cli/cdkviewer.c	/^static const char *FPUsage = "-f filename [-i Interpret] [-l Show Line Stats] [-T Title] [-B Buttons] [-X X Position] [-Y Y Position] [-H Height] [-W Width] [-N] [-S]";$/;"	v	file:
 FPUsage	cdk/demos/vinstall.c	/^static const char *FPUsage = "-f filename [-s source directory] [-d destination directory] [-t title] [-o Output file] [-q]";$/;"	v	file:
+FRAMEWORK	h/framework.hpp	2;"	d
 FULL	cdk/include/cdk.h	245;"	d
 FULL	include/cdk.h	244;"	d
 FocusObj	cdk/include/cdk_objs.h	128;"	d
 FocusObj	include/cdk_objs.h	128;"	d
+Framework	h/framework.hpp	/^class Framework{$/;"	c
 Full_Screen	c/sheet.cpp	/^void 	Sheet::Full_Screen(void)$/;"	f	class:Sheet
 GCC_UNUSED	cdk/include/cdk.h	133;"	d
 GCC_UNUSED	include/cdk.h	132;"	d
@@ -849,6 +852,7 @@ Increment	cdk/uscale.c	380;"	d	file:
 Increment	cdk/uslider.c	401;"	d	file:
 Init	c/ball.cpp	/^	void Ball::Init(void)$/;"	f	class:Ball
 Init_Analog_Clk	c/analog_clk.cpp	/^void Init_Analog_Clk(void)$/;"	f
+Init_Menu	c/menu.cpp	/^void	Menu::Init_Menu(void)$/;"	f	class:Menu
 Init_Screen_Update	c/screen_update.c	/^void Init_Screen_Update(void)$/;"	f
 Init_Super_Colours	c/menu.cpp	/^void Menu::Init_Super_Colours(unsigned char R,unsigned char G,unsigned char B,unsigned char From, unsigned char Count)$/;"	f	class:Menu
 InjectObj	cdk/include/cdk_objs.h	126;"	d
@@ -857,12 +861,17 @@ InputWindowObj	cdk/include/cdk_objs.h	127;"	d
 InputWindowObj	include/cdk_objs.h	127;"	d
 InputWindowOf	cdk/include/cdk_objs.h	137;"	d
 InputWindowOf	include/cdk_objs.h	137;"	d
+Inst_Buf	c/framework.cpp	/^	Sheet* 			Framework::Inst_Buf[5]={NULL};$/;"	m	class:Framework	file:
 Inst_Buf	c/sheet.cpp	/^	Sheet* 			Sheet::Inst_Buf[10]={NULL};$/;"	m	class:Sheet	file:
+Inst_Buf	h/framework.hpp	/^	static 				Sheet* Inst_Buf[];$/;"	m	class:Framework
 Inst_Buf	h/sheet.hpp	/^	static 				Sheet* Inst_Buf[10];$/;"	m	class:Sheet
+Inst_Count	c/framework.cpp	/^	unsigned short int 	Framework::Inst_Count=0;$/;"	m	class:Framework	file:
 Inst_Count	c/sheet.cpp	/^	unsigned short int 	Sheet::Inst_Count=0;$/;"	m	class:Sheet	file:
+Inst_Count	h/framework.hpp	/^	static unsigned short int 	Inst_Count;$/;"	m	class:Framework
 Inst_Count	h/sheet.hpp	/^	static unsigned short int 	Inst_Count;$/;"	m	class:Sheet
 IsVisibleObj	cdk/include/cdk_objs.h	136;"	d
 IsVisibleObj	include/cdk_objs.h	136;"	d
+KEY_CAPTURE	h/key_capture.hpp	2;"	d
 KEY_ERROR	cdk/include/curdefs.h	115;"	d
 KEY_ERROR	include/curdefs.h	115;"	d
 KEY_ESC	cdk/include/curdefs.h	84;"	d
@@ -927,6 +936,8 @@ KEY_TAB	cdk/include/curdefs.h	88;"	d
 KEY_TAB	cdk/include/curdefs.h	89;"	d
 KEY_TAB	include/curdefs.h	88;"	d
 KEY_TAB	include/curdefs.h	89;"	d
+Key_Capture	c/key_capture.cpp	/^	Key_Capture::Key_Capture(void)$/;"	f	class:Key_Capture
+Key_Capture	h/key_capture.hpp	/^class Key_Capture{$/;"	c
 LCurrentState	cdk/demos/serial.c	/^int LCurrentState	= 0;$/;"	v
 LDFLAGS	cdk/Makefile	/^LDFLAGS		= -L\/lib $/;"	m
 LDFLAGS	cdk/cli/Makefile	/^LDFLAGS		= -L.. -L\/lib  $/;"	m
@@ -1103,12 +1114,14 @@ MY_HDR	cdk/Makefile	/^MY_HDR		= \\$/;"	m
 MY_INFO	cdk/cli/cdkmatrix.c	9;"	d	file:
 MY_LABEL	cdk/examples/raiseCDKObject_ex.c	9;"	d	file:
 MY_MAX	cdk/examples/traverse_ex.c	11;"	d	file:
+Main_Sheet	c/menu.cpp	/^Sheet*	Menu::Main_Sheet;$/;"	m	class:Menu	file:
 Main_Sheet	h/menu.hpp	/^	static Sheet*	Main_Sheet;		\/\/global$/;"	m	class:Menu
 Max_X	c/sheet.cpp	/^unsigned short int  	Sheet::Max_X(void)$/;"	f	class:Sheet
 Max_Y	c/sheet.cpp	/^unsigned short int  	Sheet::Max_Y(void)$/;"	f	class:Sheet
 Menu	c/menu.cpp	/^	Menu::Menu(void)$/;"	f	class:Menu
 Menu	h/menu.hpp	/^class Menu{$/;"	c
-Menu_Rti	c/menu.cpp	/^void* Menu::Menu_Rti(void* Arg1)$/;"	f	class:Menu
+Menu_Inst	c/menu.cpp	/^Menu*	Menu::Menu_Inst;$/;"	m	class:Menu	file:
+Menu_Inst	h/menu.hpp	/^	static Menu*	Menu_Inst;$/;"	m	class:Menu
 MethodOf	cdk/include/cdk_objs.h	182;"	d
 MethodOf	include/cdk_objs.h	182;"	d
 MethodPtr	cdk/include/cdk_objs.h	118;"	d
@@ -1179,7 +1192,7 @@ POSX	ncurses_programs/JustForFun/hanoi.c	3;"	d	file:
 POSY	ncurses_programs/JustForFun/hanoi.c	4;"	d	file:
 PROCESSFN	cdk/include/binding.h	/^typedef int (*PROCESSFN) ($/;"	t
 PROCESSFN	include/binding.h	/^typedef int (*PROCESSFN) ($/;"	t
-PT_Menu_Rti	h/menu.hpp	/^	pthread_t 	PT_Menu_Rti;$/;"	m	class:Menu
+PT_Rti	h/key_capture.hpp	/^	pthread_t 	PT_Rti;$/;"	m	class:Key_Capture
 PT_Screen_Update_Rti	c/screen_update.c	/^pthread_t 	PT_Screen_Update_Rti;$/;"	v
 P_SHARED	cdk/package/debian/rules	/^P_SHARED = $(CURDIR)\/t\/shared$/;"	m
 P_STATIC	cdk/package/debian/rules	/^P_STATIC = $(CURDIR)\/t\/static$/;"	m
@@ -1223,6 +1236,7 @@ ResultOf	cdk/include/cdk_objs.h	186;"	d
 ResultOf	include/cdk_objs.h	186;"	d
 ReturnOf	cdk/include/cdk_objs.h	221;"	d
 ReturnOf	include/cdk_objs.h	221;"	d
+Rti	c/key_capture.cpp	/^void* Key_Capture::Rti(void* Arg1)$/;"	f	class:Key_Capture
 Rti_Delay	c/screen_update.c	/^static struct timespec 		Rti_Delay={0,10000000}; \/\/100 milis$/;"	v	typeref:struct:timespec	file:
 S	cdk/include/gen-scale.h	/^struct S<MIXED> {$/;"	s
 S	cdk/include/gen-slider.h	/^struct S<MIXED> {$/;"	s
@@ -1554,8 +1568,8 @@ XXXCB	cdk/examples/entry_ex.c	/^static int XXXCB (EObjectType cdktype GCC_UNUSED
 XextCreateExtension	cdk/configure	/^XextCreateExtension ();$/;"	f
 XtAppInitialize	cdk/configure	/^XtAppInitialize ();$/;"	f
 YEAR2INDEX	cdk/calendar.c	9;"	d	file:
-_DEP	Makefile	/^_DEP = screen_update.h menu.hpp sheet.hpp analog_clk.h ball.h$/;"	m
-_OBJ	Makefile	/^_OBJ= main.o screen_update.o menu.o sheet.o analog_clk.o ball.o$/;"	m
+_DEP	Makefile	/^_DEP = screen_update.h menu.hpp sheet.hpp analog_clk.h ball.h framework.hpp key_capture.hpp$/;"	m
+_OBJ	Makefile	/^_OBJ= main.o screen_update.o menu.o sheet.o analog_clk.o ball.o framework.o key_capture.o$/;"	m
 _PANEL_DATA	ncurses_programs/panels/panel_hide.c	/^typedef struct _PANEL_DATA {$/;"	s	file:
 _PANEL_DATA	ncurses_programs/panels/panel_resize.c	/^typedef struct _PANEL_DATA {$/;"	s	file:
 _WIN_struct	ncurses_programs/basics/other_border.c	/^typedef struct _WIN_struct {$/;"	s	file:

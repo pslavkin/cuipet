@@ -60,7 +60,10 @@ void 	Sheet::Set_Name(char* Sheet_Name)
 }
 void 	Sheet::Set_Size(unsigned short int Height,unsigned short int Width)
 {
+	wclear(Win);
 	wresize(Win,Height,Width);
+	Redraw_Box();
+	Menu::Main_Sheet->Touch_Win();	//sino quedan residuos del box
 	update_panels();
 }
 unsigned short int Sheet::Get_Height(void)

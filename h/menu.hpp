@@ -20,7 +20,6 @@ public:
 	static void	Parse_Menu_Menu		(int Selection);
 	static char*	Set_File_Select 	(PANEL* Panel);
 	
-	pthread_t 	PT_Menu_Rti;
 			Menu	 		(void);
 	void 		Init_Super_Colours 	(unsigned char R,unsigned char G,unsigned char B,unsigned char From, unsigned char Count);
 	unsigned char 	Set_Entry 		(PANEL* Panel,const char* Title,const char* Actual_Data,char* Data,unsigned short int Length);

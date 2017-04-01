@@ -7,11 +7,11 @@ SRC_DIR=./c
 EXE_DIR=./exe
 
 
-_OBJ= main.o screen_update.o menu.o sheet.o analog_clk.o ball.o framework.o
+_OBJ= main.o screen_update.o menu.o sheet.o analog_clk.o ball.o framework.o key_capture.o
 OBJ_DIR=./obj
 OBJ = $(patsubst %,$(OBJ_DIR)/%,$(_OBJ))
 
-_DEP = screen_update.h menu.hpp sheet.hpp analog_clk.h ball.h framework.hpp
+_DEP = screen_update.h menu.hpp sheet.hpp analog_clk.h ball.h framework.hpp key_capture.hpp
 DEP_DIR=./h
 DEP = $(patsubst %,$(DEP_DIR)/%,$(_DEP))
 
