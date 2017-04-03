@@ -11,6 +11,7 @@
 #include "analog_clk.h"
 #include "framework.hpp"
 #include "key_capture.hpp"
+#include "welcome.hpp"
 
 int main(int argc, char **argv)
 {
@@ -19,6 +20,7 @@ int main(int argc, char **argv)
 	Init_Analog_Clk();
 	Params_Parser(argc,argv);
 	//Ball::Init();	
+	Welcome::Create_Welcome();
 	Framework::Create_Framework();
 	new Key_Capture();
 	for(;;)
