@@ -7,7 +7,6 @@
 #include "menu.hpp"
 #include "sheet.hpp"
 #include "main.h"
-#include "ball.h"
 #include "analog_clk.h"
 #include "framework.hpp"
 #include "key_capture.hpp"
@@ -19,8 +18,7 @@ int main(int argc, char **argv)
 	Init_Screen_Update();
 	Init_Analog_Clk();
 	Params_Parser(argc,argv);
-	//Ball::Init();	
-	Welcome::Create_Welcome();
+	new Welcome();
 	Framework::Create_Framework();
 	new Key_Capture();
 	for(;;)

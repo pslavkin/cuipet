@@ -5,7 +5,6 @@
 #include "sheet.hpp"
 #include "menu.hpp"
 #include <time.h>
-#include <ball.h>
 
 void Init_Analog_Clk(void)
 {

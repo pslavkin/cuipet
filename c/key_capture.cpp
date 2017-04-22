@@ -1,4 +1,3 @@
-#include <pthread.h>
 #include <cdk.h>
 
 #include "sheet.hpp"
@@ -6,18 +5,24 @@
 #include "key_capture.hpp"
 #include "framework.hpp"
 
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <unistd.h>
+
+//----------------------------------------------------------------------------------------------------
+const unsigned int Key_Capture::Rti_Time=5;
 //----------------------------------------------------------------------------------------------------
 	Key_Capture::Key_Capture(void)
 {
-	pthread_create(&PT_Rti, NULL,Rti,NULL);
+	T = new std::thread(Rti);
 }
 //----------------------------------------------------------------------------------------------------
-void* Key_Capture::Rti(void* Arg1)
+void  Key_Capture::Rti(void)
 {
-	struct timespec req={0,Rti_Time};
 	int Key;
 	while(1) {
-	 	nanosleep(&req,&req);
+		std::this_thread::sleep_for(std::chrono::milliseconds(Rti_Time));
 		Key=getch();
 		switch(Key) {	
 			case KEY_F1:

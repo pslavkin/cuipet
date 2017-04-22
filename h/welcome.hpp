@@ -2,20 +2,21 @@
 #define WELCOME
 
 #include <panel.h>
+#include <thread>
 
 //---------------------------------------------------------------------------------------------------
 class Welcome{
 public:
 #define VERSION 			"V0.1"
-	static void  			Create_Welcome		(void);
-	static void* 			Print_Next_Character_Rti(void* Arg1);
+					Welcome			(void);
+	static void 			Print_Next_Character_Rti(void);
 private:
 	static Sheet* 			W;
 	static unsigned char 		Printing;
 	static unsigned int 		Actual_Char;
 	static const char* 		Presentation;
-	static pthread_t 		PT_Rti;
-	static struct timespec 		Rti_Delay;
+	static unsigned int 		Rti_Delay;
+	std::thread			*T;
 };
 
 #endif

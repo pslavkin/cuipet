@@ -1,17 +1,19 @@
 #ifndef KEY_CAPTURE
 #define KEY_CAPTURE
 
-#include <pthread.h>
+#include <thread>
+#include <chrono>
+#include <unistd.h>
 
 //----------------------------------------------------------------------------------------------------
 class Key_Capture{
 public:
-	pthread_t 	PT_Rti;
-	static void* 	Rti 			(void* Arg1);
-			Key_Capture		(void);
+	static void 			Rti 			(void);
+					Key_Capture		(void);
+	static const unsigned int	Rti_Time;
 	
 private:
-	static const unsigned long	Rti_Time=10000000;
+	std::thread *T;
 };
 #endif
 //----------------------------------------------------------------------------------------------------

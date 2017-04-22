@@ -23,12 +23,15 @@ AUTO_MAN	cdk/Makefile	/^AUTO_MAN	= \\$/;"	m
 AUTO_SRC	cdk/Makefile	/^AUTO_SRC	= \\$/;"	m
 AcceptsFocusObj	cdk/include/cdk_objs.h	134;"	d
 AcceptsFocusObj	include/cdk_objs.h	134;"	d
+Actual_Char	c/welcome.cpp	/^unsigned int 			Welcome::Actual_Char=0;$/;"	m	class:Welcome	file:
+Actual_Char	h/welcome.hpp	/^	static unsigned int 		Actual_Char;$/;"	m	class:Welcome
+Actual_Sheet	c/framework.cpp	/^	unsigned char 		Framework::Actual_Sheet=0;$/;"	m	class:Framework	file:
+Actual_Sheet	h/framework.hpp	/^	static unsigned char 		Actual_Sheet;$/;"	m	class:Framework
 AppointmentInfo	cdk/demos/appointment.c	/^struct AppointmentInfo$/;"	s	file:
 AppointmentMarker	cdk/demos/appointment.c	/^struct AppointmentMarker$/;"	s	file:
 AvailableWidth	cdk/radio.c	20;"	d	file:
 AvailableWidth	cdk/scroll.c	25;"	d	file:
 AvailableWidth	cdk/selection.c	20;"	d	file:
-BALL	h/ball.h	2;"	d
 BAR	cdk/examples/histogram_ex.c	96;"	d	file:
 BINDFN	cdk/include/binding.h	/^typedef BINDFN_PROTO(*BINDFN);$/;"	t
 BINDFN	include/binding.h	/^typedef BINDFN_PROTO(*BINDFN);$/;"	t
@@ -47,12 +50,6 @@ BXAttr	cdk/include/cdk_objs.h	/^   chtype       BXAttr;$/;"	m	struct:CDKOBJS
 BXAttr	include/cdk_objs.h	/^   chtype       BXAttr;$/;"	m	struct:CDKOBJS
 BXAttrOf	cdk/include/cdk_objs.h	203;"	d
 BXAttrOf	include/cdk_objs.h	203;"	d
-Ball	c/ball.cpp	/^	Ball::Ball():Sheet(NULL)$/;"	f	class:Ball
-Ball	h/ball.h	/^class 	Ball:Sheet$/;"	c
-Ball_Delay	c/ball.cpp	/^	struct timespec Ball::Ball_Delay={0,50000000}; \/\/100 milis$/;"	m	class:Ball	typeref:struct:Ball::	file:
-Ball_Delay	h/ball.h	/^	static struct 		timespec 		Ball_Delay;$/;"	m	class:Ball	typeref:struct:Ball::timespec
-Ball_Inst	c/ball.cpp	/^	Ball* 		Ball::Ball_Inst;$/;"	m	class:Ball	file:
-Ball_Inst	h/ball.h	/^	static Ball* 		Ball_Inst;$/;"	m	class:Ball
 Beep	cdk/cdk.c	/^void Beep (void)$/;"	f
 Beg_X	c/sheet.cpp	/^unsigned short int  	Sheet::Beg_X(void)$/;"	f	class:Sheet
 Beg_Y	c/sheet.cpp	/^unsigned short int  	Sheet::Beg_Y(void)$/;"	f	class:Sheet
@@ -577,6 +574,7 @@ CharOf	cdk/include/cdk_int.h	60;"	d
 CharOf	include/cdk_int.h	60;"	d
 Create_Framework	c/framework.cpp	/^	void 	Framework::Create_Framework(void)$/;"	f	class:Framework
 Create_New_Sheet_Inst	c/sheet.cpp	/^	unsigned short int Sheet::Create_New_Sheet_Inst(WINDOW* Win,const char* Name)$/;"	f	class:Sheet
+Create_Welcome	c/welcome.cpp	/^	void 	Welcome::Create_Welcome(void)$/;"	f	class:Welcome
 CurMatrixCell	cdk/matrix.c	27;"	d	file:
 CurMatrixInfo	cdk/matrix.c	30;"	d	file:
 DEB_BUILD_GNU_TYPE	cdk/package/debian-mingw/rules	/^DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)$/;"	m
@@ -708,7 +706,9 @@ FULL	include/cdk.h	244;"	d
 FocusObj	cdk/include/cdk_objs.h	128;"	d
 FocusObj	include/cdk_objs.h	128;"	d
 Framework	h/framework.hpp	/^class Framework{$/;"	c
+Full_Screen	c/framework.cpp	/^	unsigned char 		Framework::Full_Screen=0;$/;"	m	class:Framework	file:
 Full_Screen	c/sheet.cpp	/^void 	Sheet::Full_Screen(void)$/;"	f	class:Sheet
+Full_Screen	h/framework.hpp	/^	static unsigned char 		Full_Screen;$/;"	m	class:Framework
 GCC_UNUSED	cdk/include/cdk.h	133;"	d
 GCC_UNUSED	include/cdk.h	132;"	d
 GCurrentGroup	cdk/demos/rolodex.h	/^static char *GCurrentGroup	= 0;$/;"	v
@@ -811,6 +811,7 @@ HAVE_UNISTD_H	include/cdk_config.h	46;"	d
 HDR_ROOTNAME	cdk/Makefile	/^HDR_ROOTNAME	= cdk$/;"	m
 HDR_SUBDIR	cdk/Makefile	/^HDR_SUBDIR =  -h cdk.h$/;"	m
 HEADERS_SH	cdk/Makefile	/^HEADERS_SH = $(SHELL) $(srcdir)\/headers.sh $(HDR_SUBDIR) -x "$(INSTALL_DATA)" -d $(INCLUDE_SUBDIR) -s $(srcdir)$/;"	m
+HEAD_HEIGHT	h/framework.hpp	9;"	d
 HEIGHT	ncurses_programs/JustForFun/magic.c	7;"	d	file:
 HEIGHT	ncurses_programs/JustForFun/shuffle.c	6;"	d	file:
 HEIGHT	ncurses_programs/basics/mouse_menu.c	4;"	d	file:
@@ -850,7 +851,6 @@ Increment	cdk/scale.c	380;"	d	file:
 Increment	cdk/slider.c	401;"	d	file:
 Increment	cdk/uscale.c	380;"	d	file:
 Increment	cdk/uslider.c	401;"	d	file:
-Init	c/ball.cpp	/^	void Ball::Init(void)$/;"	f	class:Ball
 Init_Analog_Clk	c/analog_clk.cpp	/^void Init_Analog_Clk(void)$/;"	f
 Init_Menu	c/menu.cpp	/^void	Menu::Init_Menu(void)$/;"	f	class:Menu
 Init_Screen_Update	c/screen_update.c	/^void Init_Screen_Update(void)$/;"	f
@@ -861,7 +861,7 @@ InputWindowObj	cdk/include/cdk_objs.h	127;"	d
 InputWindowObj	include/cdk_objs.h	127;"	d
 InputWindowOf	cdk/include/cdk_objs.h	137;"	d
 InputWindowOf	include/cdk_objs.h	137;"	d
-Inst_Buf	c/framework.cpp	/^	Sheet* 			Framework::Inst_Buf[5]={NULL};$/;"	m	class:Framework	file:
+Inst_Buf	c/framework.cpp	/^	Sheet* 			Framework::Inst_Buf[MAX_SHEETS]={NULL};$/;"	m	class:Framework	file:
 Inst_Buf	c/sheet.cpp	/^	Sheet* 			Sheet::Inst_Buf[10]={NULL};$/;"	m	class:Sheet	file:
 Inst_Buf	h/framework.hpp	/^	static 				Sheet* Inst_Buf[];$/;"	m	class:Framework
 Inst_Buf	h/sheet.hpp	/^	static 				Sheet* Inst_Buf[10];$/;"	m	class:Sheet
@@ -1066,6 +1066,7 @@ MAX_MONTHS	cdk/include/calendar.h	61;"	d
 MAX_MONTHS	include/calendar.h	61;"	d
 MAX_OBJECTS	cdk/include/cdkscreen.h	57;"	d
 MAX_OBJECTS	include/cdkscreen.h	57;"	d
+MAX_SHEETS	h/framework.hpp	/^	static const unsigned char 	MAX_SHEETS=7;$/;"	m	class:Framework
 MAX_SUB_ITEMS	cdk/include/menu.h	61;"	d
 MAX_SUB_ITEMS	include/menu.h	61;"	d
 MAX_YEARS	cdk/include/calendar.h	62;"	d
@@ -1128,7 +1129,6 @@ MethodPtr	cdk/include/cdk_objs.h	118;"	d
 MethodPtr	include/cdk_objs.h	118;"	d
 MonthName	cdk/include/calendar.h	/^   char *	MonthName[MAX_MONTHS];$/;"	m	struct:SCalendar
 MonthName	include/calendar.h	/^   char *	MonthName[MAX_MONTHS];$/;"	m	struct:SCalendar
-Move	c/ball.cpp	/^	void* Ball::Move(void* Arg1)$/;"	f	class:Ball
 Move_Panel	c/sheet.cpp	/^void 	Sheet::Move_Panel(PANEL* Panel,unsigned short int Y,unsigned short int X)$/;"	f	class:Sheet
 NCOLS	ncurses_programs/panels/panel_browse.c	4;"	d	file:
 NCOLS	ncurses_programs/panels/panel_hide.c	8;"	d	file:
@@ -1192,7 +1192,8 @@ POSX	ncurses_programs/JustForFun/hanoi.c	3;"	d	file:
 POSY	ncurses_programs/JustForFun/hanoi.c	4;"	d	file:
 PROCESSFN	cdk/include/binding.h	/^typedef int (*PROCESSFN) ($/;"	t
 PROCESSFN	include/binding.h	/^typedef int (*PROCESSFN) ($/;"	t
-PT_Rti	h/key_capture.hpp	/^	pthread_t 	PT_Rti;$/;"	m	class:Key_Capture
+PT_Rti	c/welcome.cpp	/^pthread_t 			Welcome::PT_Rti;$/;"	m	class:Welcome	file:
+PT_Rti	h/welcome.hpp	/^	static pthread_t 		PT_Rti;$/;"	m	class:Welcome
 PT_Screen_Update_Rti	c/screen_update.c	/^pthread_t 	PT_Screen_Update_Rti;$/;"	v
 P_SHARED	cdk/package/debian/rules	/^P_SHARED = $(CURDIR)\/t\/shared$/;"	m
 P_STATIC	cdk/package/debian/rules	/^P_STATIC = $(CURDIR)\/t\/static$/;"	m
@@ -1209,8 +1210,12 @@ PreProcessDataOf	cdk/include/cdk_objs.h	216;"	d
 PreProcessDataOf	include/cdk_objs.h	216;"	d
 PreProcessFuncOf	cdk/include/cdk_objs.h	215;"	d
 PreProcessFuncOf	include/cdk_objs.h	215;"	d
+Presentation	c/welcome.cpp	/^const char* 			Welcome::Presentation= "CUIPET " VERSION "            .";$/;"	m	class:Welcome	file:
+Presentation	h/welcome.hpp	/^	static const char* 		Presentation;$/;"	m	class:Welcome
+Print_Next_Character_Rti	c/welcome.cpp	/^void* Welcome::Print_Next_Character_Rti(void* Arg1)$/;"	f	class:Welcome
 Print_Usage	c/main.c	/^void Print_Usage(FILE *stream, int exit_code)$/;"	f
-Pt_Ball_Rti	h/ball.h	/^	pthread_t 		Pt_Ball_Rti;$/;"	m	class:Ball
+Printing	c/welcome.cpp	/^unsigned char 			Welcome::Printing=1;$/;"	m	class:Welcome	file:
+Printing	h/welcome.hpp	/^	static unsigned char 		Printing;$/;"	m	class:Welcome
 QUEEN_CHAR	ncurses_programs/JustForFun/queens.c	4;"	d	file:
 RANLIB	cdk/Makefile	/^RANLIB		= ranlib$/;"	m
 REL_VERSION	cdk/Makefile	/^REL_VERSION	= 5.0$/;"	m
@@ -1236,8 +1241,11 @@ ResultOf	cdk/include/cdk_objs.h	186;"	d
 ResultOf	include/cdk_objs.h	186;"	d
 ReturnOf	cdk/include/cdk_objs.h	221;"	d
 ReturnOf	include/cdk_objs.h	221;"	d
-Rti	c/key_capture.cpp	/^void* Key_Capture::Rti(void* Arg1)$/;"	f	class:Key_Capture
-Rti_Delay	c/screen_update.c	/^static struct timespec 		Rti_Delay={0,10000000}; \/\/100 milis$/;"	v	typeref:struct:timespec	file:
+Rti	c/key_capture.cpp	/^void  Key_Capture::Rti(void)$/;"	f	class:Key_Capture
+Rti_Delay	c/screen_update.c	/^static struct timespec 		Rti_Delay={0,100000000}; \/\/100 milis$/;"	v	typeref:struct:timespec	file:
+Rti_Delay	c/welcome.cpp	/^struct timespec 		Welcome::Rti_Delay={0,150000000}; $/;"	m	class:Welcome	typeref:struct:Welcome::	file:
+Rti_Delay	h/welcome.hpp	/^	static struct timespec 		Rti_Delay;$/;"	m	class:Welcome	typeref:struct:Welcome::timespec
+Rti_Time	h/key_capture.hpp	/^	static const unsigned int	Rti_Time=10;$/;"	m	class:Key_Capture
 S	cdk/include/gen-scale.h	/^struct S<MIXED> {$/;"	s
 S	cdk/include/gen-slider.h	/^struct S<MIXED> {$/;"	s
 S	include/gen-scale.h	/^struct S<MIXED> {$/;"	s
@@ -1398,6 +1406,9 @@ Screen_Update_Rti	c/screen_update.c	/^void* Screen_Update_Rti(void* Arg1)$/;"	f
 SearchDirection	cdk/viewer.c	/^static int SearchDirection = DOWN;$/;"	v	file:
 SearchPattern	cdk/viewer.c	/^static char *SearchPattern = 0;$/;"	v	file:
 Select	c/sheet.cpp	/^void 	Sheet::Select(void)$/;"	f	class:Sheet
+Select_Next_Sheet	c/framework.cpp	/^	void 	Framework::Select_Next_Sheet(void)$/;"	f	class:Framework
+Select_Prev_Sheet	c/framework.cpp	/^	void 	Framework::Select_Prev_Sheet(void)$/;"	f	class:Framework
+Select_Sheet	c/framework.cpp	/^	void 	Framework::Select_Sheet(unsigned char Sheet)$/;"	f	class:Framework
 SetBackAttrObj	cdk/include/cdk_objs.h	132;"	d
 SetBackAttrObj	include/cdk_objs.h	132;"	d
 Set_Entry	c/menu.cpp	/^unsigned char Menu::Set_Entry (PANEL* Panel,const char* Title,const char* Actual_Data,char* Data,unsigned short int Length)$/;"	f	class:Menu
@@ -1414,6 +1425,7 @@ Sheet	h/sheet.hpp	/^class Sheet{$/;"	c
 Sheet4Panel	c/menu.cpp	/^Sheet* Menu::Sheet4Panel(PANEL* Panel)$/;"	f	class:Menu
 Sheet4Top_Panel	c/menu.cpp	/^Sheet* Menu::Sheet4Top_Panel(void)$/;"	f	class:Menu
 Start_Menu_Menu	c/menu.cpp	/^void Menu::Start_Menu_Menu 	(void)\/*{{{*\/$/;"	f	class:Menu
+T	h/key_capture.hpp	/^	std::thread *T;$/;"	m	class:Key_Capture
 TAB	cdk/include/curdefs.h	82;"	d
 TAB	cdk/include/curdefs.h	83;"	d
 TAB	include/curdefs.h	82;"	d
@@ -1445,6 +1457,7 @@ To_Down	c/sheet.cpp	/^char 	Sheet::To_Down(void)$/;"	f	class:Sheet
 To_Left	c/sheet.cpp	/^char 	Sheet::To_Left(void)$/;"	f	class:Sheet
 To_Right	c/sheet.cpp	/^char 	Sheet::To_Right(void)$/;"	f	class:Sheet
 To_Up	c/sheet.cpp	/^char  	Sheet::To_Up(void)$/;"	f	class:Sheet
+Toogle_Actual_Sheet_Full_Screen	c/framework.cpp	/^	void 	Framework::Toogle_Actual_Sheet_Full_Screen(void)$/;"	f	class:Framework
 Top	c/sheet.cpp	/^void 	Sheet::Top(void)$/;"	f	class:Sheet
 Touch_Win	c/sheet.cpp	/^void 	Sheet::Touch_Win(void)$/;"	f	class:Sheet
 ULChar	cdk/include/cdk_objs.h	/^   chtype       ULChar;		\/* lines: upper-left *\/$/;"	m	struct:CDKOBJS
@@ -1467,6 +1480,7 @@ UnfocusObj	cdk/include/cdk_objs.h	129;"	d
 UnfocusObj	include/cdk_objs.h	129;"	d
 Unhide	c/sheet.cpp	/^void 	Sheet::Unhide(void)$/;"	f	class:Sheet
 VERSION	cdk/Makefile	/^VERSION		= $(VERSION_MAJOR).$(VERSION_MINOR)$/;"	m
+VERSION	h/welcome.hpp	9;"	d
 VERSIONED_SYMS	cdk/Makefile	/^VERSIONED_SYMS	= $/;"	m
 VERSION_MAJOR	cdk/Makefile	/^VERSION_MAJOR	= 5$/;"	m
 VERSION_MINOR	cdk/Makefile	/^VERSION_MINOR	= 0$/;"	m
@@ -1476,7 +1490,9 @@ VTChar	cdk/include/cdk_objs.h	/^   chtype       VTChar;		\/* lines: vertical *\/
 VTChar	include/cdk_objs.h	/^   chtype       VTChar;		\/* lines: vertical *\/$/;"	m	struct:CDKOBJS
 VTCharOf	cdk/include/cdk_objs.h	201;"	d
 VTCharOf	include/cdk_objs.h	201;"	d
-Vel	h/ball.h	/^	signed short int 	Vel;$/;"	m	class:Ball
+W	c/welcome.cpp	/^Sheet* 				Welcome::W;$/;"	m	class:Welcome	file:
+W	h/welcome.hpp	/^	static Sheet* 			W;$/;"	m	class:Welcome
+WELCOME	h/welcome.hpp	2;"	d
 WIDTH	ncurses_programs/JustForFun/magic.c	6;"	d	file:
 WIDTH	ncurses_programs/JustForFun/shuffle.c	5;"	d	file:
 WIDTH	ncurses_programs/JustForFun/tt.c	8;"	d	file:
@@ -1495,6 +1511,7 @@ WIN_YPOS	cdk/include/cdk_compat.h	76;"	d
 WIN_YPOS	include/cdk_compat.h	76;"	d
 WRITE_DEBUGMESG	cdk/include/cdk.h	274;"	d
 WRITE_DEBUGMESG	include/cdk.h	273;"	d
+Welcome	h/welcome.hpp	/^class Welcome{$/;"	c
 WidestItem	cdk/radio.c	25;"	d	file:
 WidestItem	cdk/scroll.c	30;"	d	file:
 WidestItem	cdk/selection.c	25;"	d	file:
@@ -1568,8 +1585,8 @@ XXXCB	cdk/examples/entry_ex.c	/^static int XXXCB (EObjectType cdktype GCC_UNUSED
 XextCreateExtension	cdk/configure	/^XextCreateExtension ();$/;"	f
 XtAppInitialize	cdk/configure	/^XtAppInitialize ();$/;"	f
 YEAR2INDEX	cdk/calendar.c	9;"	d	file:
-_DEP	Makefile	/^_DEP = screen_update.h menu.hpp sheet.hpp analog_clk.h ball.h framework.hpp key_capture.hpp$/;"	m
-_OBJ	Makefile	/^_OBJ= main.o screen_update.o menu.o sheet.o analog_clk.o ball.o framework.o key_capture.o$/;"	m
+_DEP	Makefile	/^_DEP = screen_update.h menu.hpp sheet.hpp analog_clk.h framework.hpp key_capture.hpp welcome.hpp$/;"	m
+_OBJ	Makefile	/^_OBJ= main.o screen_update.o menu.o sheet.o analog_clk.o framework.o key_capture.o welcome.o$/;"	m
 _PANEL_DATA	ncurses_programs/panels/panel_hide.c	/^typedef struct _PANEL_DATA {$/;"	s	file:
 _PANEL_DATA	ncurses_programs/panels/panel_resize.c	/^typedef struct _PANEL_DATA {$/;"	s	file:
 _WIN_struct	ncurses_programs/basics/other_border.c	/^typedef struct _WIN_struct {$/;"	s	file:
@@ -5624,6 +5641,5 @@ ytitleLen	cdk/include/graph.h	/^   int			ytitleLen;$/;"	m	struct:SGraph
 ytitleLen	include/graph.h	/^   int			ytitleLen;$/;"	m	struct:SGraph
 ytitlePos	cdk/include/graph.h	/^   int			ytitlePos;$/;"	m	struct:SGraph
 ytitlePos	include/graph.h	/^   int			ytitlePos;$/;"	m	struct:SGraph
-~Ball	c/ball.cpp	/^	Ball::~Ball(void)$/;"	f	class:Ball
 ~CDKScreen	cdk/c++/cdkscreen.cc	/^CDKScreen::~CDKScreen() $/;"	f	class:CDKScreen
 ~Sheet	c/sheet.cpp	/^ 	Sheet::~Sheet(void)$/;"	f	class:Sheet

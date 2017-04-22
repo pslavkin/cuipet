@@ -6,6 +6,7 @@
 //---------------------------------------------------------------------------------------------------
 class Framework{
 public:
+	#define 			HEAD_HEIGHT 1
 	static 				Sheet* Inst_Buf[];
 	static unsigned short int 	Inst_Count;
 	static void  			Create_Framework		(void);

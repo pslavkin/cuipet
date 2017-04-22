@@ -21,7 +21,7 @@ void	Menu::Init_Menu(void)
 	cbreak();
 	noecho();
 	keypad(stdscr, TRUE);
-	initCDKColor ();
+	//initCDKColor ();
 	start_color();
 	Menu::Init_Super_Colours(0,0,1,  0,192);
 	curs_set(0);

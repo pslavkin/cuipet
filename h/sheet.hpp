@@ -57,7 +57,7 @@ public:
 
 	 			~Sheet				(void);
 private:
-	void 		Move_Panel			(PANEL* Panel,unsigned short int Y,unsigned short int X);
+	void 			Move_Panel			(PANEL* Panel,unsigned short int Y,unsigned short int X);
 };
 
 #endif

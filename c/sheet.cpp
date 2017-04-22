@@ -3,12 +3,16 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <pthread.h>
 #include <string.h>
 #include "screen_update.h"
 #include "sheet.hpp"
 #include "menu.hpp"
 #include "analog_clk.h"
+
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <unistd.h>
 
 ////----------------------------------------------------------------------------------------------------
 	unsigned short int 	Sheet::Inst_Count=0;
