@@ -7,11 +7,8 @@
 
 #include <iostream>
 #include <thread>
-#include <chrono>
 #include <unistd.h>
 
-//----------------------------------------------------------------------------------------------------
-const unsigned int Key_Capture::Rti_Time=5;
 //----------------------------------------------------------------------------------------------------
 	Key_Capture::Key_Capture(void)
 {
@@ -22,7 +19,6 @@ void  Key_Capture::Rti(void)
 {
 	int Key;
 	while(1) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(Rti_Time));
 		Key=getch();
 		switch(Key) {	
 			case KEY_F1:

@@ -573,8 +573,6 @@ CURDEF_H	include/curdefs.h	3;"	d
 CharOf	cdk/include/cdk_int.h	60;"	d
 CharOf	include/cdk_int.h	60;"	d
 Create_Framework	c/framework.cpp	/^	void 	Framework::Create_Framework(void)$/;"	f	class:Framework
-Create_New_Sheet_Inst	c/sheet.cpp	/^	unsigned short int Sheet::Create_New_Sheet_Inst(WINDOW* Win,const char* Name)$/;"	f	class:Sheet
-Create_Welcome	c/welcome.cpp	/^	void 	Welcome::Create_Welcome(void)$/;"	f	class:Welcome
 CurMatrixCell	cdk/matrix.c	27;"	d	file:
 CurMatrixInfo	cdk/matrix.c	30;"	d	file:
 DEB_BUILD_GNU_TYPE	cdk/package/debian-mingw/rules	/^DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)$/;"	m
@@ -862,13 +860,9 @@ InputWindowObj	include/cdk_objs.h	127;"	d
 InputWindowOf	cdk/include/cdk_objs.h	137;"	d
 InputWindowOf	include/cdk_objs.h	137;"	d
 Inst_Buf	c/framework.cpp	/^	Sheet* 			Framework::Inst_Buf[MAX_SHEETS]={NULL};$/;"	m	class:Framework	file:
-Inst_Buf	c/sheet.cpp	/^	Sheet* 			Sheet::Inst_Buf[10]={NULL};$/;"	m	class:Sheet	file:
 Inst_Buf	h/framework.hpp	/^	static 				Sheet* Inst_Buf[];$/;"	m	class:Framework
-Inst_Buf	h/sheet.hpp	/^	static 				Sheet* Inst_Buf[10];$/;"	m	class:Sheet
 Inst_Count	c/framework.cpp	/^	unsigned short int 	Framework::Inst_Count=0;$/;"	m	class:Framework	file:
-Inst_Count	c/sheet.cpp	/^	unsigned short int 	Sheet::Inst_Count=0;$/;"	m	class:Sheet	file:
 Inst_Count	h/framework.hpp	/^	static unsigned short int 	Inst_Count;$/;"	m	class:Framework
-Inst_Count	h/sheet.hpp	/^	static unsigned short int 	Inst_Count;$/;"	m	class:Sheet
 IsVisibleObj	cdk/include/cdk_objs.h	136;"	d
 IsVisibleObj	include/cdk_objs.h	136;"	d
 KEY_CAPTURE	h/key_capture.hpp	2;"	d
@@ -1042,7 +1036,7 @@ MAX_CDK_PARAMS	cdk/include/cdk_params.h	52;"	d
 MAX_CDK_PARAMS	include/cdk_params.h	52;"	d
 MAX_CHOICES	cdk/include/selection.h	60;"	d
 MAX_CHOICES	include/selection.h	60;"	d
-MAX_COLOUR_PAIR	h/sheet.hpp	7;"	d
+MAX_COLOUR_PAIR	h/menu.hpp	10;"	d
 MAX_DAYS	cdk/include/calendar.h	60;"	d
 MAX_DAYS	include/calendar.h	60;"	d
 MAX_DIALOG_BUTTONS	cdk/include/dialog.h	61;"	d
@@ -1082,11 +1076,11 @@ MINGW_TOP	cdk/package/debian-mingw/rules	/^MINGW_TOP = \/usr\/$(TARGET)$/;"	m
 MINGW_TOP	cdk/package/debian-mingw64/rules	/^MINGW_TOP = \/usr\/$(TARGET)$/;"	m
 MINIMUM	cdk/include/cdk.h	256;"	d
 MINIMUM	include/cdk.h	255;"	d
-MIN_COLOUR_PAIR	h/sheet.hpp	6;"	d
+MIN_COLOUR_PAIR	h/menu.hpp	9;"	d
 MIN_DIALOG_WIDTH	cdk/include/dialog.h	62;"	d
 MIN_DIALOG_WIDTH	include/dialog.h	62;"	d
-MIN_HEIGHT	h/sheet.hpp	10;"	d
-MIN_WIDTH	h/sheet.hpp	9;"	d
+MIN_HEIGHT	h/sheet.hpp	7;"	d
+MIN_WIDTH	h/sheet.hpp	6;"	d
 MIXED	cdk/gen-scale.c	/^CDK<UPPER> *newCDK<MIXED> (CDKSCREEN *cdkscreen,$/;"	f
 MIXED	cdk/gen-scale.c	/^static int _injectCDK<MIXED> (CDKOBJS *object, chtype input)$/;"	f	file:
 MIXED	cdk/gen-scale.c	/^static void _destroyCDK<MIXED> (CDKOBJS *object)$/;"	f	file:
@@ -1192,8 +1186,6 @@ POSX	ncurses_programs/JustForFun/hanoi.c	3;"	d	file:
 POSY	ncurses_programs/JustForFun/hanoi.c	4;"	d	file:
 PROCESSFN	cdk/include/binding.h	/^typedef int (*PROCESSFN) ($/;"	t
 PROCESSFN	include/binding.h	/^typedef int (*PROCESSFN) ($/;"	t
-PT_Rti	c/welcome.cpp	/^pthread_t 			Welcome::PT_Rti;$/;"	m	class:Welcome	file:
-PT_Rti	h/welcome.hpp	/^	static pthread_t 		PT_Rti;$/;"	m	class:Welcome
 PT_Screen_Update_Rti	c/screen_update.c	/^pthread_t 	PT_Screen_Update_Rti;$/;"	v
 P_SHARED	cdk/package/debian/rules	/^P_SHARED = $(CURDIR)\/t\/shared$/;"	m
 P_STATIC	cdk/package/debian/rules	/^P_STATIC = $(CURDIR)\/t\/static$/;"	m
@@ -1212,7 +1204,7 @@ PreProcessFuncOf	cdk/include/cdk_objs.h	215;"	d
 PreProcessFuncOf	include/cdk_objs.h	215;"	d
 Presentation	c/welcome.cpp	/^const char* 			Welcome::Presentation= "CUIPET " VERSION "            .";$/;"	m	class:Welcome	file:
 Presentation	h/welcome.hpp	/^	static const char* 		Presentation;$/;"	m	class:Welcome
-Print_Next_Character_Rti	c/welcome.cpp	/^void* Welcome::Print_Next_Character_Rti(void* Arg1)$/;"	f	class:Welcome
+Print_Next_Character_Rti	c/welcome.cpp	/^void Welcome::Print_Next_Character_Rti(void)$/;"	f	class:Welcome
 Print_Usage	c/main.c	/^void Print_Usage(FILE *stream, int exit_code)$/;"	f
 Printing	c/welcome.cpp	/^unsigned char 			Welcome::Printing=1;$/;"	m	class:Welcome	file:
 Printing	h/welcome.hpp	/^	static unsigned char 		Printing;$/;"	m	class:Welcome
@@ -1242,10 +1234,10 @@ ResultOf	include/cdk_objs.h	186;"	d
 ReturnOf	cdk/include/cdk_objs.h	221;"	d
 ReturnOf	include/cdk_objs.h	221;"	d
 Rti	c/key_capture.cpp	/^void  Key_Capture::Rti(void)$/;"	f	class:Key_Capture
-Rti_Delay	c/screen_update.c	/^static struct timespec 		Rti_Delay={0,100000000}; \/\/100 milis$/;"	v	typeref:struct:timespec	file:
-Rti_Delay	c/welcome.cpp	/^struct timespec 		Welcome::Rti_Delay={0,150000000}; $/;"	m	class:Welcome	typeref:struct:Welcome::	file:
-Rti_Delay	h/welcome.hpp	/^	static struct timespec 		Rti_Delay;$/;"	m	class:Welcome	typeref:struct:Welcome::timespec
-Rti_Time	h/key_capture.hpp	/^	static const unsigned int	Rti_Time=10;$/;"	m	class:Key_Capture
+Rti_Delay	c/screen_update.c	/^static struct timespec 		Rti_Delay={0,10000000}; \/\/100 milis$/;"	v	typeref:struct:timespec	file:
+Rti_Delay	c/welcome.cpp	/^unsigned int	 		Welcome::Rti_Delay=100; $/;"	m	class:Welcome	file:
+Rti_Delay	h/welcome.hpp	/^	static unsigned int 		Rti_Delay;$/;"	m	class:Welcome
+Rti_Time	h/key_capture.hpp	/^	static const unsigned int	Rti_Time;$/;"	m	class:Key_Capture
 S	cdk/include/gen-scale.h	/^struct S<MIXED> {$/;"	s
 S	cdk/include/gen-slider.h	/^struct S<MIXED> {$/;"	s
 S	include/gen-scale.h	/^struct S<MIXED> {$/;"	s
@@ -1426,6 +1418,7 @@ Sheet4Panel	c/menu.cpp	/^Sheet* Menu::Sheet4Panel(PANEL* Panel)$/;"	f	class:Menu
 Sheet4Top_Panel	c/menu.cpp	/^Sheet* Menu::Sheet4Top_Panel(void)$/;"	f	class:Menu
 Start_Menu_Menu	c/menu.cpp	/^void Menu::Start_Menu_Menu 	(void)\/*{{{*\/$/;"	f	class:Menu
 T	h/key_capture.hpp	/^	std::thread *T;$/;"	m	class:Key_Capture
+T	h/welcome.hpp	/^	std::thread			*T;$/;"	m	class:Welcome
 TAB	cdk/include/curdefs.h	82;"	d
 TAB	cdk/include/curdefs.h	83;"	d
 TAB	include/curdefs.h	82;"	d
@@ -1480,7 +1473,7 @@ UnfocusObj	cdk/include/cdk_objs.h	129;"	d
 UnfocusObj	include/cdk_objs.h	129;"	d
 Unhide	c/sheet.cpp	/^void 	Sheet::Unhide(void)$/;"	f	class:Sheet
 VERSION	cdk/Makefile	/^VERSION		= $(VERSION_MAJOR).$(VERSION_MINOR)$/;"	m
-VERSION	h/welcome.hpp	9;"	d
+VERSION	h/welcome.hpp	10;"	d
 VERSIONED_SYMS	cdk/Makefile	/^VERSIONED_SYMS	= $/;"	m
 VERSION_MAJOR	cdk/Makefile	/^VERSION_MAJOR	= 5$/;"	m
 VERSION_MINOR	cdk/Makefile	/^VERSION_MINOR	= 0$/;"	m
@@ -1511,6 +1504,7 @@ WIN_YPOS	cdk/include/cdk_compat.h	76;"	d
 WIN_YPOS	include/cdk_compat.h	76;"	d
 WRITE_DEBUGMESG	cdk/include/cdk.h	274;"	d
 WRITE_DEBUGMESG	include/cdk.h	273;"	d
+Welcome	c/welcome.cpp	/^		Welcome::Welcome(void)$/;"	f	class:Welcome
 Welcome	h/welcome.hpp	/^class Welcome{$/;"	c
 WidestItem	cdk/radio.c	25;"	d	file:
 WidestItem	cdk/scroll.c	30;"	d	file:

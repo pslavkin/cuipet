@@ -12,9 +12,9 @@
 
 //----------------------------------------------------------------------------------------------------
 unsigned char 			Welcome::Printing=1;
-const char* 			Welcome::Presentation= "CUIPET " VERSION "            .";
+const char* 			Welcome::Presentation= "CUIPET " VERSION ".............................";
 unsigned int 			Welcome::Actual_Char=0;
-unsigned int	 		Welcome::Rti_Delay=50; 
+unsigned int	 		Welcome::Rti_Delay=10; 
 Sheet* 				Welcome::W;
 //----------------------------------------------------------------------------------------------------
 		Welcome::Welcome(void)
@@ -35,11 +35,12 @@ Sheet* 				Welcome::W;
 //----------------------------------------------------------------------------------------------------
 void Welcome::Print_Next_Character_Rti(void)
 {
+	unsigned char i=0;
 	while(1) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(Rti_Delay));
 		if(Presentation[Actual_Char]!=0) {
 			update_panels();
-			waddch(W->Win,Presentation[Actual_Char]);
+			waddch(W->Win,Presentation[Actual_Char]|COLOR_PAIR(i+=1));
 			Actual_Char++;
 		}
 		else {

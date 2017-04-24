@@ -15,29 +15,6 @@
 #include <unistd.h>
 
 ////----------------------------------------------------------------------------------------------------
-	unsigned short int 	Sheet::Inst_Count=0;
-	Sheet* 			Sheet::Inst_Buf[10]={NULL};
-
-	unsigned short int Sheet::Create_New_Sheet_Inst(WINDOW* Win,const char* Name)
-{
-	unsigned short int i;
-	for(i=0;i<(sizeof(Inst_Buf)/sizeof(Sheet*));i++) 
-		if(Inst_Buf[i]==NULL) {
-			char Name_Def[100];
-			sprintf(Name_Def,"Instancia %d",i);
-			Inst_Buf[i]=new Sheet(Win);
- 			Inst_Buf[i]->Set_Panel_User_Pointer(Inst_Buf[i]);
- 			Inst_Buf[i]->Set_Name(Name==NULL?Name_Def:(char*)Name);
- 			Inst_Buf[i]->Set_Size(3,Menu::Main_Sheet->Max_X()-2);
- 			Inst_Buf[i]->Set_Pos(Menu::Main_Sheet->Max_Y()-(i+1)*3-1,1);
- 			//Inst_Buf[i]->Set_Size(10,60);
- 			//Inst_Buf[i]->Set_Pos(10,1);
- 			Inst_Buf[i]->Redraw_Box();
-			break;
-		}
-	return i;
-}
-
 	Sheet::Sheet(WINDOW *Ext_Win)
 {
 	Win= 			Ext_Win!=NULL?Ext_Win:newwin(1, 1, 0,0);
@@ -45,12 +22,12 @@
 }
 void 	Sheet::Redraw_Box(void)
 {
-	wattron(Win,COLOR_PAIR(100));
+	wattron(Win,COLOR_PAIR(1));
 	box   	  	(Win,0,0);
-	wattroff(Win,COLOR_PAIR(100));
-	wattron(Win,COLOR_PAIR(180));
+	wattroff(Win,COLOR_PAIR(1));
+	wattron(Win,COLOR_PAIR(1));
 	mvwprintw 	(Win,0,5,Name);
-	wattroff(Win,COLOR_PAIR(180));
+	wattroff(Win,COLOR_PAIR(1));
 	update_panels();
 }
 void 	Sheet::Hide_Box(void)

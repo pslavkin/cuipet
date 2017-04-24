@@ -6,6 +6,8 @@
 #include <pthread.h>
 #include <../cdk/include/menu.h>
 
+#define MIN_COLOUR_PAIR         1
+#define MAX_COLOUR_PAIR         254
 //----------------------------------------------------------------------------------------------------
 class Menu{
 public:

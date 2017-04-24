@@ -2,6 +2,7 @@
 #include <menu.hpp>
 #include <pthread.h>
 #include <panel.h>
+#include <math.h>
 
 #include "sheet.hpp"
 #include "screen_update.h"
@@ -21,9 +22,9 @@ void	Menu::Init_Menu(void)
 	cbreak();
 	noecho();
 	keypad(stdscr, TRUE);
-	//initCDKColor ();
 	start_color();
-	Menu::Init_Super_Colours(0,0,1,  0,192);
+	//initCDKColor ();
+	Menu::Init_Super_Colours(1,1,0, 1 ,253);
 	curs_set(0);
 	Main_Sheet->Set_Panel_User_Pointer(Main_Sheet);
 	Main_Sheet->Set_Name((char*)"Main");
@@ -34,11 +35,14 @@ void	Menu::Init_Menu(void)
 void Menu::Init_Super_Colours(unsigned char R,unsigned char G,unsigned char B,unsigned char From, unsigned char Count)
 {
 	unsigned short int i,Bg,Pair;
-	Pair=MIN_COLOUR_PAIR+From; 		//los primeros 64 se los regalo a CDK en su llamada a initCDKColor
-	Bg=16+From;				//cdk usa solo 8 colores... me agarro el resto (parece que tambien usa el 15...raaaro)
-	for(i=1;i<Count;i++) 	{ 	 	//no me puedo pasar de 255 pares... no da mas la funcion PAIR_NUMBER.. si no fuera por eso podria seguir...
+	Pair=From;	 		//los primeros 64 se los regalo a CDK en su llamada a initCDKColor
+	Bg=From;				//cdk usa solo 8 colores... me agarro el resto (parece que tambien usa el 15...raaaro)
+	for(i=0;i<Count;i++) 	{ 	 	//no me puedo pasar de 255 pares... no da mas la funcion PAIR_NUMBER.. si no fuera por eso podria seguir...
 		init_pair (Pair,255,Bg); 	
-		init_color(Bg,(i*1000/Count)*R,(i*1000/Count)*G,(i*1000/Count)*B);
+		
+		init_color(Bg,  sqrt(pow(1000,2)-pow(((Count-i)*1000)/Count,2))*R,
+				sqrt(pow(1000,2)-pow(((Count-i)*1000)/Count,2))*G,
+				sqrt(pow(1000,2)-pow(((Count-i)*1000)/Count,2))*B);
 		Bg++;
 		Pair++;
 	}
@@ -131,7 +135,6 @@ void Menu::Parse_Menu_Menu 	(int Selection)
 			exit(0);
 			break;
 		case 100:
-			Sheet::Create_New_Sheet_Inst(NULL,NULL);
 			break;
 		}
 }/*}}}*/

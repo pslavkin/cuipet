@@ -3,27 +3,15 @@
 
 #include <panel.h>
 
-#define MIN_COLOUR_PAIR         65
-#define MAX_COLOUR_PAIR         255
-
 #define MIN_WIDTH         	2
 #define MIN_HEIGHT		2 
 
-extern void 		Init_Sheets 			(void);
-extern void 		Init_Super_Colours 		(unsigned char R,unsigned char G,unsigned char B,unsigned char From, unsigned char Count);
-//---------------------------------------------------------------------------------------------------
-extern void 		Start_Scr_Menu 			(void);
-extern void 		Parse_Scr_Menu 			(int Selection);
-extern void 		Redraw_Scr_Box 			(void);
 //---------------------------------------------------------------------------------------------------
 class Sheet{
 public:
 	WINDOW 				*Win;
 	PANEL 				*Panel; 
 	char 				Name[100];
-	static 				Sheet* Inst_Buf[10];
-	static unsigned short int 	Inst_Count;
-	static unsigned short int 	Create_New_Sheet_Inst(WINDOW* Win,const char* Name);
 
 				Sheet				(WINDOW *Ext_Win);
 	void 			Redraw_Box			(void);
