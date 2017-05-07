@@ -12,9 +12,11 @@ public:
 	WINDOW 				*Win;
 	PANEL 				*Panel; 
 	char 				Name[100];
+	void 			(*Parser)			(int Event);
 
 				Sheet				(WINDOW *Ext_Win);
 	void 			Redraw_Box			(void);
+	void			Print_String_In_Fade		(int Y, int X, char* S);
 	void 			Hide_Box			(void);
 	void 			Set_Name			(char* Sheet_Name);
 	void 			Set_Size			(unsigned short int Height,unsigned short int Width);
@@ -42,8 +44,10 @@ public:
 	unsigned short int  	Max_X				(void);
 	unsigned short int  	Beg_Y				(void);
 	unsigned short int  	Beg_X				(void);
+	static void		Parser_Nothing			(int Event);
 
 	 			~Sheet				(void);
+
 private:
 	void 			Move_Panel			(PANEL* Panel,unsigned short int Y,unsigned short int X);
 };

@@ -19,6 +19,7 @@ public:
 	 				~Framework			(void);
 	static unsigned char 		Actual_Sheet;
 	static unsigned char 		Full_Screen;
+	static void 			Parse_Event			(int Event);
 private:
 	static const unsigned char 	MAX_SHEETS=7;
 };

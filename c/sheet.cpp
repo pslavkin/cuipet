@@ -19,15 +19,31 @@
 {
 	Win= 			Ext_Win!=NULL?Ext_Win:newwin(1, 1, 0,0);
 	Panel= 			new_panel(Win);
+	Parser=			Parser_Nothing;
 }
+
+void 	Sheet::Parser_Nothing(int Event)
+{
+}
+
+void	Sheet::Print_String_In_Fade(int Y, int X, char* S)
+{
+	unsigned int i;
+	wmove(Win,Y,X);
+	for(i=0;S[i]!=0;i++)
+		waddch(Win,S[i]|COLOR_PAIR(i+1));
+}
+
+
 void 	Sheet::Redraw_Box(void)
 {
 	wattron(Win,COLOR_PAIR(1));
 	box   	  	(Win,0,0);
 	wattroff(Win,COLOR_PAIR(1));
-	wattron(Win,COLOR_PAIR(1));
-	mvwprintw 	(Win,0,5,Name);
-	wattroff(Win,COLOR_PAIR(1));
+//	wattron(Win,COLOR_PAIR(1));
+	Print_String_In_Fade(0,5,Name);
+//	mvwprintw 	(Win,0,5,Name);
+//	wattroff(Win,COLOR_PAIR(1));
 	update_panels();
 }
 void 	Sheet::Hide_Box(void)

@@ -75,6 +75,7 @@ void  Key_Capture::Rti(void)
 				Menu::Menu_Inst->Sheet4Top_Panel()->Dec_Height();
 				break;
 			case KEY_BACKSPACE:
+				Menu::Menu_Inst->Sheet4Top_Panel()->Parser(KEY_BACKSPACE);
 				break;
 			case KEY_HOME:
 				break;

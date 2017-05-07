@@ -29,6 +29,7 @@
  			Inst_Buf[i]->Set_Pos(Menu::Main_Sheet->Max_Y()-(i+1)*HEAD_HEIGHT-1,1);
  			Inst_Buf[i]->Set_Size(HEAD_HEIGHT,Menu::Main_Sheet->Max_X()-2);
  			Inst_Buf[i]->Redraw_Box();
+ 			Inst_Buf[i]->Parser=Parse_Event;
 	}
 	Select_Sheet(3);
 }
@@ -78,4 +79,12 @@
 	Full_Screen^=0x01;
 }
 
+	void 	Framework::Parse_Event(int Event)
+{
+	if(Full_Screen==0)
+		Inst_Buf[Actual_Sheet]->Full_Screen();
+	else
+		Select_Sheet(Actual_Sheet);
+	Full_Screen^=0x01;
+}
 

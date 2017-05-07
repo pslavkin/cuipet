@@ -23,8 +23,8 @@ void	Menu::Init_Menu(void)
 	noecho();
 	keypad(stdscr, TRUE);
 	start_color();
-	//initCDKColor ();
 	Menu::Init_Super_Colours(1,1,0, 1 ,253);
+	//initCDKColor ();
 	curs_set(0);
 	Main_Sheet->Set_Panel_User_Pointer(Main_Sheet);
 	Main_Sheet->Set_Name((char*)"Main");
